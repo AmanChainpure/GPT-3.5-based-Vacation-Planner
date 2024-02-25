@@ -1,0 +1,1053 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #333;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 70%;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Travel planner chatbot </h1>-->
+<!--    <div id="chat-container">-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    chatWindow.innerHTML += `<div class="user-message">${userInput}</div>`;-->
+<!--                    chatWindow.innerHTML += `<div class="bot-message">${data.response}</div>`;-->
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+<!--<div class="chat-popup" id="myForm">-->
+<!--  <form action="/action_page.php" class="form-container">-->
+<!--    <h1>Chat</h1>-->
+
+<!--    <label for="msg"><b>Message</b></label>-->
+<!--    <textarea placeholder="Type message.." name="msg" required></textarea>-->
+
+<!--    <button type="submit" class="btn">Send</button>-->
+<!--    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #333;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 70%;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        /* Style for the chatbot button */-->
+<!--        #chatbot-button {-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            border-radius: 50%;-->
+<!--            padding: 15px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Chatbot Interface</h1>-->
+<!--    <div id="chat-container">-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Chatbot Pop-Up Button &ndash;&gt;-->
+<!--    <button id="chatbot-button">Chat with the Chatbot</button>-->
+
+<!--    <script>-->
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    chatWindow.innerHTML += `<div class="user-message">${userInput}</div>`;-->
+<!--                    chatWindow.innerHTML += `<div class="bot-message">${data.response}</div>`;-->
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+
+<!--        // JavaScript code to handle chatbot pop-up-->
+<!--        document.addEventListener('DOMContentLoaded', function () {-->
+<!--            const chatbotButton = document.getElementById('chatbot-button');-->
+<!--            const chatContainer = document.getElementById('chat-container');-->
+
+<!--            chatbotButton.addEventListener('click', function () {-->
+<!--                // Display the chat container (pop-up) when the button is clicked-->
+<!--                chatContainer.style.display = 'block';-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--Creating chat window with pop up button-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Poppins, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            max-width: 800px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            display: none;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #333;-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 70%;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--            margin-right: 10px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        #open-chat-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--        }-->
+
+<!--        #close-chat-button {-->
+<!--            background-color: #ff0000;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <button id="open-chat-button" onclick="toggleChat()">Open Chat</button>-->
+<!--    <h1>Travel planner chatbot</h1>-->
+<!--    <div id="chat-container">-->
+<!--        <button id="close-chat-button" onclick="toggleChat()">Close</button>-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let chatOpen = false;-->
+
+<!--        function toggleChat() {-->
+<!--            const chatContainer = document.getElementById('chat-container');-->
+<!--            chatOpen = !chatOpen;-->
+<!--            chatContainer.style.display = chatOpen ? 'block' : 'none';-->
+<!--        }-->
+
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    chatWindow.innerHTML += `<div class="user-message">${userInput}</div>`;-->
+<!--                    chatWindow.innerHTML += `<div class="bot-message">${data.response}</div>`;-->
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Poppins, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            width: 400px; /* Adjust the width as needed */-->
+<!--            height: 500px; /* Adjust the height as needed */-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            display: none;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--            border-radius: 10px; /* Add border radius for a softer appearance */-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            margin: 5px 0;-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            padding: 5px; /* Add padding for better spacing */-->
+<!--            background-color: #e0f0ff; /* Set the background color for user messages */-->
+<!--            clear: both; /* Ensure user messages appear below bot messages */-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #fff; /* Change text color to white for bot messages */-->
+<!--            margin: 5px 0;-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            padding: 5px; /* Add padding for better spacing */-->
+<!--            background-color: #007bff; /* Set the background color for bot messages */-->
+<!--            clear: both; /* Ensure bot messages appear below user messages */-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 60%; /* Adjust the width as needed */-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            float: right; /* Move the send button to the right */-->
+<!--        }-->
+
+<!--        #open-chat-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--        }-->
+
+<!--        #close-chat-button {-->
+<!--            background-color: #ff0000;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <button id="open-chat-button" onclick="toggleChat()">Open Chat</button>-->
+<!--    <h1>Travel planner chatbot</h1>-->
+<!--    <div id="chat-container">-->
+<!--        <button id="close-chat-button" onclick="toggleChat()">Close</button>-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let chatOpen = false;-->
+
+<!--        function toggleChat() {-->
+<!--            const chatContainer = document.getElementById('chat-container');-->
+<!--            chatOpen = !chatOpen;-->
+<!--            chatContainer.style.display = chatOpen ? 'block' : 'none';-->
+<!--        }-->
+
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    chatWindow.innerHTML += `<div class="user-message">${userInput}</div>`;-->
+<!--                    chatWindow.innerHTML += `<div class="bot-message">${data.response}</div>`;-->
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Poppins, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            width: 400px; /* Adjust the width as needed */-->
+<!--            height: 500px; /* Adjust the height as needed */-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            display: none;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--            border-radius: 10px; /* Add border radius for a softer appearance */-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            margin: 5px 0;-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            padding: 5px; /* Add padding for better spacing */-->
+<!--            display: inline-block; /* Make messages inline */-->
+<!--        }-->
+
+<!--        .user-message-content {-->
+<!--            background-color: #e0f0ff; /* Set the background color for user message content */-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #fff; /* Change text color to white for bot messages */-->
+<!--            margin: 5px 0;-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            padding: 5px; /* Add padding for better spacing */-->
+<!--            display: inline-block; /* Make messages inline */-->
+<!--        }-->
+
+<!--        .bot-message-content {-->
+<!--            background-color: #007bff; /* Set the background color for bot message content */-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 60%; /* Adjust the width as needed */-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            float: right; /* Move the send button to the right */-->
+<!--        }-->
+
+<!--        #open-chat-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--        }-->
+
+<!--        #close-chat-button {-->
+<!--            background-color: #ff0000;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <button id="open-chat-button" onclick="toggleChat()">Open Chat</button>-->
+<!--    <h1>Travel planner chatbot</h1>-->
+<!--    <div id="chat-container">-->
+<!--        <button id="close-chat-button" onclick="toggleChat()">Close</button>-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let chatOpen = false;-->
+
+<!--        function toggleChat() {-->
+<!--            const chatContainer = document.getElementById('chat-container');-->
+<!--            chatOpen = !chatOpen;-->
+<!--            chatContainer.style.display = chatOpen ? 'block' : 'none';-->
+<!--        }-->
+
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    chatWindow.innerHTML += `<div class="user-message"><div class="user-message-content">${userInput}</div></div>`;-->
+<!--                    chatWindow.innerHTML += `<div class="bot-message"><div class="bot-message-content">${data.response}</div></div>`;-->
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Chatbot</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Poppins, sans-serif;-->
+<!--            background-color: #f2f2f2;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        #chat-container {-->
+<!--            width: 400px; /* Adjust the width as needed */-->
+<!--            height: 500px; /* Adjust the height as needed */-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            display: none;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--            border-radius: 10px; /* Add border radius for a softer appearance */-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            text-align: center;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        #chat-window {-->
+<!--            max-height: 400px;-->
+<!--            overflow-y: auto;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        .message-container {-->
+<!--            margin: 5px 0;-->
+<!--            padding: 5px; /* Add padding for better spacing */-->
+<!--            clear: both; /* Ensure messages are stacked one below the other */-->
+<!--        }-->
+
+<!--        .user-message {-->
+<!--            text-align: right;-->
+<!--            color: #007bff;-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            background-color: #e0f0ff; /* Set the background color for user messages */-->
+<!--            float: right; /* Align user messages to the right */-->
+<!--        }-->
+
+<!--        .bot-message {-->
+<!--            text-align: left;-->
+<!--            color: #fff; /* Change text color to white for bot messages */-->
+<!--            border-radius: 5px; /* Add border radius for a softer appearance */-->
+<!--            background-color: #007bff; /* Set the background color for bot messages */-->
+<!--            float: left; /* Align bot messages to the left */-->
+<!--        }-->
+
+<!--        #user-input {-->
+<!--            width: 60%; /* Adjust the width as needed */-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+
+<!--        #send-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            float: right; /* Move the send button to the right */-->
+<!--        }-->
+
+<!--        #open-chat-button {-->
+<!--            background-color: #007bff;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: fixed;-->
+<!--            bottom: 20px;-->
+<!--            right: 20px;-->
+<!--        }-->
+
+<!--        #close-chat-button {-->
+<!--            background-color: #ff0000;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 5px;-->
+<!--            cursor: pointer;-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <button id="open-chat-button" onclick="toggleChat()">Open Chat</button>-->
+<!--    <h1>Travel planner chatbot</h1>-->
+<!--    <div id="chat-container">-->
+<!--        <button id="close-chat-button" onclick="toggleChat()">Close</button>-->
+<!--        <div id="chat-window"></div>-->
+<!--        <div>-->
+<!--            <input type="text" id="user-input" placeholder="Type your message...">-->
+<!--            <button id="send-button" onclick="sendMessage()">Send</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let chatOpen = false;-->
+
+<!--        function toggleChat() {-->
+<!--            const chatContainer = document.getElementById('chat-container');-->
+<!--            chatOpen = !chatOpen;-->
+<!--            chatContainer.style.display = chatOpen ? 'block' : 'none';-->
+<!--        }-->
+
+<!--        function sendMessage() {-->
+<!--            const userInput = document.getElementById('user-input').value;-->
+<!--            if (userInput.trim() !== '') {-->
+<!--                // Send the user input to the server using AJAX or Fetch-->
+<!--                fetch('/ask', {-->
+<!--                    method: 'POST',-->
+<!--                    body: new URLSearchParams({ 'user_input': userInput }),-->
+<!--                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }-->
+<!--                })-->
+<!--                .then(response => response.json())-->
+<!--                .then(data => {-->
+<!--                    // Display the chatbot's response in the chat window-->
+<!--                    const chatWindow = document.getElementById('chat-window');-->
+<!--                    const messageContainer = document.createElement('div');-->
+<!--                    messageContainer.classList.add('message-container');-->
+
+<!--                    if (userInput.trim() !== '') {-->
+<!--                        const userMessage = document.createElement('div');-->
+<!--                        userMessage.classList.add('user-message');-->
+<!--                        userMessage.innerHTML = userInput;-->
+<!--                        messageContainer.appendChild(userMessage);-->
+<!--                    }-->
+
+<!--                    const botMessage = document.createElement('div');-->
+<!--                    botMessage.classList.add('bot-message');-->
+<!--                    botMessage.innerHTML = data.response;-->
+<!--                    messageContainer.appendChild(botMessage);-->
+
+<!--                    chatWindow.appendChild(messageContainer);-->
+
+<!--                    // Clear the user input field-->
+<!--                    document.getElementById('user-input').value = '';-->
+
+<!--                    // Scroll to the bottom of the chat window to show the latest message-->
+<!--                    chatWindow.scrollTop = chatWindow.scrollHeight;-->
+<!--                });-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        #chat-container {
+            width: 400px; /* Adjust the width as needed */
+            height: 500px; /* Adjust the height as needed */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 10px; /* Add border radius for a softer appearance */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #chat-window {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .message-container {
+            margin: 5px 0;
+            padding: 5px; /* Add padding for better spacing */
+            clear: both; /* Ensure messages are stacked one below the other */
+        }
+
+        .user-message {
+            text-align: right;
+            color: #fff; /* Change text color to white for user messages */
+            border-radius: 5px; /* Add border radius for a softer appearance */
+            padding: 5px; /* Add padding for better spacing */
+            display: inline-block; /* Make messages inline */
+            background-color: #007bff; /* Set the background color for user messages */
+        }
+
+        .bot-message {
+            text-align: left;
+            color: #333; /* Change text color to dark gray for bot messages */
+            border-radius: 5px; /* Add border radius for a softer appearance */
+            padding: 5px; /* Add padding for better spacing */
+            display: inline-block; /* Make messages inline */
+            background-color: #e0f0ff; /* Set the background color for bot messages */
+        }
+
+        #user-input {
+            width: 60%; /* Adjust the width as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right; /* Move the send button to the right */
+        }
+
+        #open-chat-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #close-chat-button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="open-chat-button" onclick="toggleChat()">Open Chat</button>
+    <h1>Travel planner chatbot</h1>
+    <div id="chat-container">
+        <button id="close-chat-button" onclick="closeChat()">Close</button>
+        <div id="chat-window"></div>
+        <div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        let chatOpen = false;
+
+        function toggleChat() {
+            const chatContainer = document.getElementById('chat-container');
+            chatOpen = !chatOpen;
+            chatContainer.style.display = chatOpen ? 'block' : 'none';
+
+            // Clear the chat window when reopening the chat
+            if (chatOpen) {
+                document.getElementById('chat-window').innerHTML = '';
+            }
+        }
+
+        function closeChat() {
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.style.display = 'none';
+
+            // Clear the chat window when closing the chat
+            document.getElementById('chat-window').innerHTML = '';
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                // Send the user input to the server using AJAX or Fetch
+                fetch('/ask', {
+                    method: 'POST',
+                    body: new URLSearchParams({ 'user_input': userInput }),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the chatbot's response in the chat window
+                    const chatWindow = document.getElementById('chat-window');
+                    const messageContainer = document.createElement('div');
+                    messageContainer.classList.add('message-container');
+
+                    if (userInput.trim() !== '') {
+                        const userMessage = document.createElement('div');
+                        userMessage.classList.add('user-message');
+                        userMessage.innerHTML = userInput;
+                        messageContainer.appendChild(userMessage);
+                    }
+
+                    const botMessage = document.createElement('div');
+                    botMessage.classList.add('bot-message');
+                    botMessage.innerHTML = data.response;
+                    messageContainer.appendChild(botMessage);
+
+                    chatWindow.appendChild(messageContainer);
+
+                    // Clear the user input field
+                    document.getElementById('user-input').value = '';
+
+                    // Scroll to the bottom of the chat window to show the latest message
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
