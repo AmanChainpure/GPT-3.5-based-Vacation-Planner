@@ -16,10 +16,10 @@ import re
 
 load_dotenv()
 
-# bot = Bot(token="6289167327:AAHBCk-G7yU5w0VfKi6pqLwpVGKueYA4FKc")
+# bot = Bot(token="Token")
 # dp = Dispatcher(bot)
 
-openai.api_key = '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'
+openai.api_key = 'API_KEY'
 
 chat_history = []
 
